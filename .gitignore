@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# VS Code
+.vscode/
+
+# Data folders
+data_raw/
+data_processed/
+
+# Spark temporary files
+spark-warehouse/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+# Large text folders
+review.txt/
+offering.txt/
