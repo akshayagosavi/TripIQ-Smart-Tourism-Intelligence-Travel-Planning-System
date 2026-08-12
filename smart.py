@@ -1,7 +1,7 @@
 import pandas as pd
-unwto = pd.read_csv("C:\Users\aksha\OneDrive\Documents\New folder\data_raw\structured_UNWTO_tourism_data.csv")
+unwto = pd.read_csv("C:\Users\aksha\TripIQ-Smart-Tourism-Intelligence-Travel-Planning-System\structured_UNWTO_tourism_data.csv")
 
-owid = pd.read_csv(r"C:\Users\aksha\OneDrive\Documents\New folder\Smart Project\data_raw\international-tourist-trips.csv")
+owid = pd.read_csv(r"C:\Users\aksha\TripIQ-Smart-Tourism-Intelligence-Travel-Planning-System\international-tourist-trips.csv")
 print(owid.shape)
 print(owid.columns.tolist())
 print(owid.head(5).to_string())
