@@ -157,6 +157,8 @@ if "preferences" not in st.session_state:
     st.session_state.preferences = {}
 if "trip_history" not in st.session_state:
     st.session_state.trip_history = []
+if "registered_users" not in st.session_state:
+    st.session_state.registered_users = {}
 
 # Hardcoded users (simple — no real DB needed for portfolio)
 USERS = {
@@ -164,6 +166,7 @@ USERS = {
     "akshaya" : {"password": "trip123",  "role": "user"},
     "guest"   : {"password": "guest123", "role": "user"},
 }
+USERS.update(st.session_state.registered_users)
 
 
 # =============================================================
@@ -250,6 +253,7 @@ def page_login():
                 st.error("Username already taken.")
             else:
                 USERS[new_user] = {"password": new_pass, "role": "user"}
+                st.session_state.registered_users[new_user] = USERS[new_user]
                 st.session_state.logged_in = True
                 st.session_state.username = new_user
                 st.success(f"Account created! Welcome, {new_user}!")
@@ -504,7 +508,7 @@ def page_user_profile():
         return
 
     username = st.session_state.username
-    role     = USERS[username]["role"]
+    role     = USERS.get(username, {"role": "user"})["role"]
 
     st.markdown(f'<div class="hero"><h1>👤 {username}</h1><p>Role: {role.capitalize()} · Manage your preferences and trip history</p></div>', unsafe_allow_html=True)
 
@@ -546,7 +550,7 @@ def page_user_profile():
 # PAGE 8 — ADMIN PANEL
 # =============================================================
 def page_admin(data):
-    if not st.session_state.logged_in or USERS[st.session_state.username]["role"] != "admin":
+    if not st.session_state.logged_in or USERS.get(st.session_state.username, {"role": "user"})["role"] != "admin":
         st.error("Access denied. Admin only.")
         return
 
@@ -622,7 +626,7 @@ def main():
 
         if st.session_state.logged_in:
             pages.append("👤 My Profile")
-            if USERS[st.session_state.username]["role"] == "admin":
+            if USERS.get(st.session_state.username, {"role": "user"})["role"] == "admin":
                 pages.append("🔧 Admin Panel")
         else:
             pages.append("🔐 Login / Sign Up")
