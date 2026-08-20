@@ -107,6 +107,10 @@ st.markdown("""
     [data-testid="stMetricValue"] { color: #0f2537 !important; }
     [data-testid="stMetricLabel"] { color: #667085 !important; }
     [data-testid="stMetricDelta"] { color: #1a6b3a !important; }
+    div[data-baseweb="input"] > div, div[data-baseweb="select"] > div { background-color: #ffffff !important; border-color: #cbd5e1 !important; }
+    div[data-baseweb="input"] input { color: #0f2537 !important; }
+    div[data-baseweb="select"] * { color: #0f2537 !important; }
+    .stButton > button { background: #1a6b3a !important; color: white !important; border: 0 !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -616,6 +620,10 @@ def main():
         else:
             pages.append("🔐 Login / Sign Up")
 
+        # Keep login easy to find for signed-out visitors.
+        if not st.session_state.logged_in:
+            login_page = pages.pop()
+            pages.insert(0, login_page)
         page = st.radio("Navigate", pages)
         st.markdown("---")
         st.caption("Smart tourism intelligence for better travel decisions.")
