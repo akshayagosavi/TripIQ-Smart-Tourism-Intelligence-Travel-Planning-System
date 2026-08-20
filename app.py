@@ -111,6 +111,9 @@ st.markdown("""
     div[data-baseweb="input"] input { color: #0f2537 !important; }
     div[data-baseweb="select"] * { color: #0f2537 !important; }
     .stButton > button { background: #1a6b3a !important; color: white !important; border: 0 !important; }
+    [data-baseweb="tab-list"] { gap: 0.5rem; }
+    [data-baseweb="tab"] { color: #0f2537 !important; font-weight: 600 !important; }
+    [data-baseweb="tab-highlight"] { background-color: #1a6b3a !important; }
 </style>
 """, unsafe_allow_html=True)
 
