@@ -102,6 +102,11 @@ st.markdown("""
     }
     .admin-box .num { font-size: 1.8rem; font-weight: 700; color: #17a2b8; }
     .admin-box .lbl { font-size: 0.85rem; color: #b0cfe0; }
+
+    /* Keep Streamlit's built-in metric text readable on the light background. */
+    [data-testid="stMetricValue"] { color: #0f2537 !important; }
+    [data-testid="stMetricLabel"] { color: #667085 !important; }
+    [data-testid="stMetricDelta"] { color: #1a6b3a !important; }
 </style>
 """, unsafe_allow_html=True)
 
