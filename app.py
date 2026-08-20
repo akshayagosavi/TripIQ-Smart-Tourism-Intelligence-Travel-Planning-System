@@ -110,6 +110,10 @@ st.markdown("""
     div[data-baseweb="input"] > div, div[data-baseweb="select"] > div { background-color: #ffffff !important; border-color: #cbd5e1 !important; }
     div[data-baseweb="input"] input { color: #0f2537 !important; }
     div[data-baseweb="select"] * { color: #0f2537 !important; }
+    .stTextInput label, .stTextInput label p, .stSelectbox label, .stSelectbox label p { color: #0f2537 !important; font-weight: 600 !important; }
+    .stTextInput input { background-color: #ffffff !important; color: #0f2537 !important; caret-color: #1a6b3a !important; }
+    .stTextInput input::placeholder { color: #8a96a3 !important; opacity: 1 !important; }
+    .stTextInput [data-baseweb="input"] { background-color: #ffffff !important; }
     .stButton > button { background: #1a6b3a !important; color: white !important; border: 0 !important; }
     [data-baseweb="tab-list"] { gap: 0.5rem; }
     [data-baseweb="tab"] { color: #0f2537 !important; font-weight: 600 !important; }
